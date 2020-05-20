@@ -261,17 +261,12 @@ $address= $address['address'];
               </thead>
                <tbody>
           
-              <?php  $query="SELECT * from  orderdetails where ordernum='$ordernum'";
+              <?php  $query="SELECT * from  orderdetails inner join product on product.pro_id=orderdetails.pro_id where ordernum='$ordernum'";
               $result=mysqli_query($conn,$query);
               while( $product=mysqli_fetch_assoc($result)){
-              $key=$product['pro_id'];
-               
-              $query="SELECT pro_name from product  where pro_id=$key";
-              $result=mysqli_query($conn,$query);
-              $proname=mysqli_fetch_assoc($result); 
-            
-               echo "<tr>" ;
-                 echo"<th colspan='2'><span> {$proname['pro_name']}</span></th>
+              
+
+                 echo"<th colspan='2'><span> {$product['pro_name']}</span></th>
                   <th> {$product['proqty']}</th>
                   <th> <span> {$product['proprice']} </span></th>";
                 echo "</tr>";
