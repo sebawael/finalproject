@@ -261,7 +261,7 @@ $address= $address['address'];
               </thead>
                <tbody>
           
-              <?php $key =array(); $query="SELECT * from  orderdetails where ordernum='$ordernum'";
+              <?php  $query="SELECT * from  orderdetails where ordernum='$ordernum'";
               $result=mysqli_query($conn,$query);
               while( $product=mysqli_fetch_assoc($result)){
               $key=$product['pro_id'];
